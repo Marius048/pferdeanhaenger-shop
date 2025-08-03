@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Pferdeanhänger Shop</title>
+  <meta charset="UTF-8">
+  <title>Pferdeshop Login</title>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1 id="header">🔐 Status wird geladen…</h1>
+  <h1>Pferdeshop 🐴</h1>
 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="script.js"></script>
+  <button id="loginBtn">🔐 Login</button>
+  <button id="logoutBtn" style="display:none;">🚪 Logout</button>
+
+  <p id="status">⏳ Status wird geladen…</p>
+
+  <div id="adminArea" style="display:none; border: 1px solid #ccc; padding: 1rem;">
+    <h2>👑 Adminbereich</h2>
+    <p>Willkommen, Admin! Hier kannst du Inhalte verwalten.</p>
+  </div>
 </body>
 </html>
-

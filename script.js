@@ -16,7 +16,7 @@ const initAuth0 = async () => {
   // ⏩ Login Redirect verarbeiten
   if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
     await auth0.handleRedirectCallback();
-    window.history.replaceState({}, document.title, window.location.pathname);
+    window.history.replaceState({}, document.title, "/admin.html");
   }
 
   const isAuthenticated = await auth0.isAuthenticated();
@@ -25,8 +25,13 @@ const initAuth0 = async () => {
   const logoutBtn = document.getElementById("logoutBtn");
   const statusEl = document.getElementById("status");
 
-  if (loginBtn) loginBtn.addEventListener("click", () => auth0.loginWithRedirect({ redirect_uri: window.location.origin + "/admin.html" }));
-  if (logoutBtn) logoutBtn.addEventListener("click", () => auth0.logout({ returnTo: window.location.origin + "/admin.html" }));
+  // 🔐 Login- & Logout-Button
+  if (loginBtn) loginBtn.addEventListener("click", () =>
+    auth0.loginWithRedirect({ redirect_uri: "https://pferdeanhaenger-shop.netlify.app/admin.html" })
+  );
+  if (logoutBtn) logoutBtn.addEventListener("click", () =>
+    auth0.logout({ returnTo: "https://pferdeanhaenger-shop.netlify.app/admin.html" })
+  );
 
   if (isAuthenticated) {
     const user = await auth0.getUser();
@@ -109,4 +114,6 @@ const löscheAngebot = (id) => {
   alert(`Angebot mit ID ${id} soll gelöscht werden (Serverzugriff nötig).`);
 };
 
+// 🚀 Initialisieren
 initAuth0();
+

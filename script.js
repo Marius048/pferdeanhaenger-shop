@@ -1,5 +1,5 @@
 // DEINE Auth0-Daten – ersetze mit deinem echten Setup!
-const auth0Domain = "dev-cau83froo7jdms2y.auth0.com";
+const auth0Domain = "dev-cau83froo7jdms2y.us.auth0.com";
 const auth0ClientId = "jC9DEMQsaXv4MxTR2CaG6iSC5JvmuxJs";
 const roleNamespace = "https://pferdeshop/roles"; // Custom Claim Namespace
 

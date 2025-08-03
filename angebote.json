@@ -1,1 +1,15 @@
+[
+  {
+    "id": 1,
+    "titel": "Reithelm Classic",
+    "beschreibung": "Ein sicherer Helm für Anfänger und Profis.",
+    "preis": 49.99
+  },
+  {
+    "id": 2,
+    "titel": "Sattel Comfort",
+    "beschreibung": "Ergonomischer Sattel mit Lederbezug.",
+    "preis": 199.00
+  }
+]
 

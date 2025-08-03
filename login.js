@@ -1,27 +1,37 @@
+// Netlify Identity initialisieren
 netlifyIdentity.init();
 
-netlifyIdentity.on('login', user => {
-  document.getElementById('adminContent').style.display = 'block';
+// Login-Button aktivieren
+document.getElementById("netlifyLogin").addEventListener("click", () => {
+  netlifyIdentity.open();
 });
 
-netlifyIdentity.on('logout', () => {
-  document.getElementById('adminContent').style.display = 'none';
+// Sichtbarkeit nach Login steuern
+netlifyIdentity.on("login", user => {
+  console.log("Eingeloggt als:", user.email);
+  document.getElementById("adminContent").style.display = "block";
 });
 
-// Korrigierter Teil zum Invite-Token
+netlifyIdentity.on("logout", () => {
+  document.getElementById("adminContent").style.display = "none";
+});
+
+// Invite-Token aus URL-Hash auslesen
 const url = new URL(window.location.href);
 const hashParams = new URLSearchParams(url.hash.slice(1));
 const inviteToken = hashParams.get("invite_token");
 
 if (inviteToken) {
-  const password = prompt("Bitte neues Passwort setzen:");
+  // Passwort abfragen
+  const password = prompt("🎫 Du wurdest eingeladen – bitte Passwort setzen:");
   netlifyIdentity.acceptInvite(inviteToken, password)
     .then(user => {
-      console.log("Einladung angenommen!", user);
-      document.getElementById('adminContent').style.display = 'block';
+      console.log("✅ Einladung akzeptiert!", user);
+      document.getElementById("adminContent").style.display = "block";
     })
     .catch(error => {
-      console.error("Fehler beim Setzen des Passworts:", error);
+      alert("❌ Fehler beim Setzen des Passworts");
+      console.error(error);
     });
 }
 

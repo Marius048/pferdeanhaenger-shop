@@ -1,1 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Adminbereich</title>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>👑 Adminbereich</h1>
+  <button id="loginBtn">🔐 Login</button>
+  <button id="logoutBtn" style="display:none;">🚪 Logout</button>
+  <p id="status">⏳ Status wird geladen…</p>
+  <div id="editor" style="display:none;">
+    <h2>Angebote verwalten</h2>
+    <div id="angeboteBearbeiten"></div>
+    <button onclick="neuesAngebot()">➕ Neues Angebot</button>
+  </div>
+</body>
+</html>
 

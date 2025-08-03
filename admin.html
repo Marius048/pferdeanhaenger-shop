@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Adminbereich</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <h1>Adminbereich</h1>
+  <button onclick="netlifyIdentity.open()">Login</button>
+
+  <div id="adminContent" style="display: none;">
+    <h2>Inserate bearbeiten</h2>
+    <div id="adminListe"></div>
+
+    <h3>Neues Inserat</h3>
+    <form id="neuForm">
+      <input id="titel" placeholder="Titel"><br>
+      <input id="preis" placeholder="Preis"><br>
+      <input id="bild" placeholder="Bild (img/...)"><br>
+      <button type="submit">Hinzufügen</button>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

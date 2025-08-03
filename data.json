@@ -1,0 +1,12 @@
+[
+  {
+    "titel": "Classic Trailer",
+    "preis": "2500 €",
+    "bild": "img/anhänger1.jpg"
+  },
+  {
+    "titel": "ProLine Modell",
+    "preis": "3700 €",
+    "bild": "img/anhänger2.jpg"
+  }
+]

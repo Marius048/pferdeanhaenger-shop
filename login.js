@@ -8,8 +8,10 @@ netlifyIdentity.on('logout', () => {
   document.getElementById('adminContent').style.display = 'none';
 });
 
-const urlParams = new URLSearchParams(window.location.search);
-const inviteToken = urlParams.get("token");
+// Korrigierter Teil zum Invite-Token
+const url = new URL(window.location.href);
+const hashParams = new URLSearchParams(url.hash.slice(1));
+const inviteToken = hashParams.get("invite_token");
 
 if (inviteToken) {
   const password = prompt("Bitte neues Passwort setzen:");
@@ -22,3 +24,4 @@ if (inviteToken) {
       console.error("Fehler beim Setzen des Passworts:", error);
     });
 }
+
